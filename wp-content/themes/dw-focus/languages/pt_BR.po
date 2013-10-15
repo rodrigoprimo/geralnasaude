@@ -1,0 +1,831 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"POT-Creation-Date: 2013-09-02 16:56-0300\n"
+"PO-Revision-Date: 2013-09-02 16:57-0300\n"
+"Last-Translator: Rafael <rafaeltosta@gmail.com>\n"
+"Language-Team: \n"
+"Language: pt_BR\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Generator: Poedit 1.5.4\n"
+"X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
+"X-Poedit-Basepath: .\n"
+"X-Poedit-SearchPath-0: /home/rafael/www/dw-focus\n"
+
+#: /home/rafael/www/dw-focus/author.php:26
+msgid "Website URL:"
+msgstr "Endereço do Blog:"
+
+#: /home/rafael/www/dw-focus/author.php:35
+msgid "AIM:"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/author.php:42
+msgid "Yahoo:"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/author.php:52
+#, php-format
+msgid "Author Archives: %s"
+msgstr "Correspondente %s"
+
+#: /home/rafael/www/dw-focus/page.php:24
+#: /home/rafael/www/dw-focus/content-single.php:27
+#: /home/rafael/www/dw-focus/attachment.php:71
+msgid "Pages:"
+msgstr "Páginas:"
+
+#: /home/rafael/www/dw-focus/header.php:131
+#: /home/rafael/www/dw-focus/functions.php:425
+#: /home/rafael/www/dw-focus/inc/customization.php:205
+msgid "Facebook"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/header.php:134
+#: /home/rafael/www/dw-focus/functions.php:424
+#: /home/rafael/www/dw-focus/inc/customization.php:218
+msgid "Twitter"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/header.php:137
+#: /home/rafael/www/dw-focus/inc/customization.php:231
+msgid "Google Plus"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/header.php:140
+msgid "Linked in"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/header.php:143
+msgid "Rss"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/header.php:146
+msgid "Login"
+msgstr "Entrar"
+
+#: /home/rafael/www/dw-focus/archive.php:16
+#, php-format
+msgid "Daily Archives: %s"
+msgstr "Arquivo diário: %s"
+
+#: /home/rafael/www/dw-focus/archive.php:18
+#, php-format
+msgid "Monthly Archives: %s"
+msgstr "Arquivo mensal: %s"
+
+#: /home/rafael/www/dw-focus/archive.php:21
+#, php-format
+msgid "Category Archives: %s"
+msgstr "%s"
+
+#: /home/rafael/www/dw-focus/archive.php:25
+#, php-format
+msgid "Tag Archives: %s"
+msgstr "Tag %s"
+
+#: /home/rafael/www/dw-focus/archive.php:28
+msgid "Blog Archives"
+msgstr "Arquivos"
+
+#: /home/rafael/www/dw-focus/content-search.php:17
+#: /home/rafael/www/dw-focus/content-search.php:29
+#: /home/rafael/www/dw-focus/content-related-post.php:13
+#: /home/rafael/www/dw-focus/content-related-post.php:25
+#: /home/rafael/www/dw-focus/content.php:21
+#: /home/rafael/www/dw-focus/content.php:28
+#: /home/rafael/www/dw-focus/content-archive.php:22
+#: /home/rafael/www/dw-focus/content-archive.php:37
+#: /home/rafael/www/dw-focus/content-archive.php:59
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:246
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:262
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:274
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:323
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:341
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:350
+#, php-format
+msgid "Permalink to %s"
+msgstr "Link para %s"
+
+#: /home/rafael/www/dw-focus/no-results.php:14
+msgid "Nothing Found"
+msgstr "Não encontrado"
+
+#: /home/rafael/www/dw-focus/no-results.php:20
+#, php-format
+msgid ""
+"Ready to publish your first post? <a href=\"%1$s\">Get started here</a>."
+msgstr "Pronto para seu primeiro post?<a href=\"%1$s\">Clique Aqui</a>."
+
+#: /home/rafael/www/dw-focus/no-results.php:24
+msgid ""
+"Sorry, but nothing matched your search terms. Please try again with some "
+"different keywords."
+msgstr ""
+"Desculpe, mas não encontramos os termos da sua pesquisa no blog. Por favor, "
+"tente novamente com palavras diferentes."
+
+#: /home/rafael/www/dw-focus/no-results.php:29
+msgid ""
+"It seems we can&rsquo;t find what you&rsquo;re looking for. Perhaps "
+"searching can help."
+msgstr "Não pudemos encontrar o que procura."
+
+#: /home/rafael/www/dw-focus/single.php:38
+msgid "Related posts"
+msgstr "Posts relacionados:"
+
+#: /home/rafael/www/dw-focus/comments.php:40
+#: /home/rafael/www/dw-focus/comments.php:60
+msgid "Comment navigation"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/comments.php:41
+#: /home/rafael/www/dw-focus/comments.php:61
+msgid "&larr; Older Comments"
+msgstr "&larr; Comentário antigos"
+
+#: /home/rafael/www/dw-focus/comments.php:42
+#: /home/rafael/www/dw-focus/comments.php:62
+msgid "Newer Comments &rarr;"
+msgstr "Comentários recentes &rarr;"
+
+#: /home/rafael/www/dw-focus/comments.php:74
+msgid "Comments are closed."
+msgstr "Aréa de comentários fechada."
+
+#: /home/rafael/www/dw-focus/comments.php:91
+msgid "Your Name"
+msgstr "Nome"
+
+#: /home/rafael/www/dw-focus/comments.php:93
+msgid "Your Email"
+msgstr "E-mail"
+
+#: /home/rafael/www/dw-focus/comments.php:95
+msgid "Website"
+msgstr "Site"
+
+#: /home/rafael/www/dw-focus/functions.php:124
+msgid "Primary Menu"
+msgstr "Menu Principal"
+
+#: /home/rafael/www/dw-focus/functions.php:239
+msgid "See More"
+msgstr "Ver mais"
+
+#: /home/rafael/www/dw-focus/functions.php:250
+msgid "<i class=\"icon-chevron-left\"></i>"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/functions.php:251
+msgid "<i class=\"icon-chevron-right\"></i>"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/functions.php:422
+msgid "Sharing"
+msgstr "Compartilhar"
+
+#: /home/rafael/www/dw-focus/functions.php:426
+msgid "Google +"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/functions.php:427
+#: /home/rafael/www/dw-focus/inc/customization.php:244
+msgid "Linkedin"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/functions.php:428
+msgid "Email this article"
+msgstr "Enviar por e-mail"
+
+#: /home/rafael/www/dw-focus/functions.php:430
+msgid "Print this article"
+msgstr "Imprimir"
+
+#: /home/rafael/www/dw-focus/functions.php:438
+#: /home/rafael/www/dw-focus/content.php:55
+#: /home/rafael/www/dw-focus/content-archive.php:44
+#: /home/rafael/www/dw-focus/content-archive.php:66
+#: /home/rafael/www/dw-focus/content-archive.php:85
+msgid ", "
+msgstr ""
+
+#: /home/rafael/www/dw-focus/functions.php:442
+msgid "Tags"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/functions.php:444
+#, php-format
+msgid "%1$s"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/functions.php:822
+msgid "New Articles today"
+msgstr "Artigos de hoje"
+
+#: /home/rafael/www/dw-focus/functions.php:822
+msgid "Must read articles"
+msgstr "Posts mais lidos"
+
+#: /home/rafael/www/dw-focus/functions.php:918
+msgid "Read more"
+msgstr "Ler mais"
+
+#: /home/rafael/www/dw-focus/404.php:61
+msgid "404!"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/404.php:62
+msgid "The page you were looking for is not here"
+msgstr "Você entrou na página errada"
+
+#: /home/rafael/www/dw-focus/404.php:70
+msgid "Maybe you are interested in:"
+msgstr "Você se interessa por..."
+
+#: /home/rafael/www/dw-focus/search.php:13
+#, php-format
+msgid "Search Results for: %s"
+msgstr "Resultado da busca por %s"
+
+#: /home/rafael/www/dw-focus/category.php:15
+#, php-format
+msgid "%s articles"
+msgstr "%s"
+
+#: /home/rafael/www/dw-focus/footer.php:86
+msgid "Scroll to top"
+msgstr "Voltar pro topo"
+
+#: /home/rafael/www/dw-focus/footer.php:86
+msgid "Top"
+msgstr "Topo"
+
+#: /home/rafael/www/dw-focus/attachment.php:20
+#, php-format
+msgid ""
+"<span class=\"entry-date\"><time class=\"entry-date\" datetime=\"%1$s\" "
+"pubdate>%2$s</time></span>"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/content.php:37
+msgid "0 comment "
+msgstr "seja o primeiro a comentar"
+
+#: /home/rafael/www/dw-focus/content.php:37
+msgid "1 comment"
+msgstr "1 comentário"
+
+#: /home/rafael/www/dw-focus/content.php:37
+#, php-format
+msgid "% comments"
+msgstr "% comentários"
+
+#: /home/rafael/www/dw-focus/content.php:37
+msgid "comment off"
+msgstr "comentário off"
+
+#: /home/rafael/www/dw-focus/content.php:59
+#: /home/rafael/www/dw-focus/content-archive.php:89
+#, php-format
+msgid "Tags: %1$s"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/content-archive.php:48
+#: /home/rafael/www/dw-focus/content-archive.php:70
+#, php-format
+msgid "<span> on </span>%1$s"
+msgstr "<span> em </span>%1$s"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:5
+msgid "General Settings"
+msgstr "Configurações Gerais: "
+
+#: /home/rafael/www/dw-focus/inc/customization.php:18
+msgid "Select Layout"
+msgstr "Selecionar layout"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:23
+#: /home/rafael/www/dw-focus/inc/class-customize-control.php:17
+msgid "Right Sidebar"
+msgstr "Barra lateral direita"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:24
+#: /home/rafael/www/dw-focus/inc/class-customize-control.php:22
+msgid "Left Sidebar"
+msgstr "Barra lateral esquerda"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:38
+msgid "DW Focus header script"
+msgstr "DW Focus Cabeçalho - Script"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:52
+msgid "DW Focus footer script"
+msgstr "DW Focus Rodapé - Script"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:68
+msgid "Logo"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/customization.php:82
+msgid "Small logo"
+msgstr "Logo Pequeno"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:96
+msgid "Post Navigation Technique"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/customization.php:100
+msgid "Number"
+msgstr "Número"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:101
+msgid "Load more button"
+msgstr "Coloque mais botões"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:114
+msgid "Plus Menu"
+msgstr "Menu extras"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:118
+msgid "Display latest news Today"
+msgstr "Display de ultimas noticias do dia"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:119
+msgid "Display latest news of the Site"
+msgstr "Display de últimas noticias no site"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:132
+msgid "Number of news"
+msgstr "Número de noticias"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:140
+msgid "Category settings"
+msgstr "Editar Categorias"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:152
+msgid "Default category display layout"
+msgstr "Layout padrão para categoria"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:157
+#: /home/rafael/www/dw-focus/inc/class-customize-control.php:157
+msgid "List"
+msgstr "Lisra"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:158
+#: /home/rafael/www/dw-focus/inc/class-customize-control.php:162
+msgid "Grid"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/customization.php:164
+msgid "Social Links"
+msgstr "Redes"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:177
+msgid "Enable login link"
+msgstr "Desativar link de login"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:191
+msgid "Enable feed link"
+msgstr "Desativar feed"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:252
+msgid "Blog settings"
+msgstr "Ferramentas do blog"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:274
+msgid "Select Category"
+msgstr "Selecionar categoria"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:289
+msgid "Number of posts per page"
+msgstr "Número de posts por página"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:302
+msgid "Enter scripts or code you would like output to wp_head():"
+msgstr ""
+"Digite os scripts ou código que você gostaria de saída para wp_head ():"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:304
+msgid "Enter scripts or code you would like output to wp_footer():"
+msgstr ""
+"Digite os scripts ou código que você gostaria de saída para wp_footer ():"
+
+#: /home/rafael/www/dw-focus/inc/customization.php:311
+msgid ""
+"The <code>wp_head()</code> hook executes immediately before the closing "
+"<code>&lt;&#47;head&gt;</code> tag in the document source."
+msgstr ""
+"O <code> wp_head () </ code> gancho executa imediatamente antes do "
+"fechamento <code> </ head> </ code> na origem do documento."
+
+#: /home/rafael/www/dw-focus/inc/customization.php:318
+msgid ""
+"The wp_footer() hook executes immediately before the closing </body> tag in "
+"the document source."
+msgstr ""
+"O wp_footer () hook executa imediatamente antes do fechamento </ body> tag "
+"na origem do documento."
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:38
+msgid "Post navigation"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:48
+msgid "<span class=\"meta-nav\">&larr;</span> Older posts"
+msgstr "<span class=\"meta-nav\">&larr;</span> Posts antigos"
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:52
+msgid "Newer posts <span class=\"meta-nav\">&rarr;</span>"
+msgstr "Mais recentes <span class=\"meta-nav\">&rarr;</span>"
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:77
+msgid "Pingback:"
+msgstr "Menção:"
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:77
+msgid "(Edit)"
+msgstr "(Editar)"
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:100
+msgid "Edit"
+msgstr "Editar"
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:104
+msgid "Your comment is awaiting moderation."
+msgstr "Seu comentário está aguardando moderação."
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:112
+msgid "Reply"
+msgstr "Réplica"
+
+#: /home/rafael/www/dw-focus/inc/template-tags.php:129
+#, php-format
+msgid "<time class=\"entry-date\" datetime=\"%3$s\" pubdate>%4$s</time>"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:11
+msgid "Main Sidebar"
+msgstr "Barra Lateral Principal"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:13
+msgid "Use to display widgets in secondary column"
+msgstr "Use para exibir widgets na coluna secundária"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:20
+msgid "Category Sidebar"
+msgstr "Categorias na Barra lateral"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:22
+msgid "Use to display widgets in Category"
+msgstr "Use para exibir widgets na categoria"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:29
+msgid "Single Post Sidebar"
+msgstr "Post único na barra principal"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:31
+msgid "Use to display widgets in Single Post"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:38
+msgid "Home Content"
+msgstr "Conteúdo da Home"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:40
+msgid "Use to display widgets in primary column of home"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:47
+msgid "Blog Sidebar"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:49
+msgid "Use to display widgets in Blog"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:56
+msgid "Header"
+msgstr "Cabeçalho"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:58
+msgid "Use to display widgets in header"
+msgstr "Use para exibir widgets no cabeçalho"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:65
+msgid "Under Navigation"
+msgstr "Em navegação"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:67
+msgid "Use to display widgets under navigation"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:74
+msgid "Bottom"
+msgstr "Botões"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:76
+msgid "Use to display widgets under main content"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:83
+msgid "Footer Sidebar 1"
+msgstr "Rodapé 1"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:85
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:94
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:103
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:112
+msgid "Use to display widgets in footer"
+msgstr "Use para exibir widgets no rodapé"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:92
+msgid "Footer Sidebar 2"
+msgstr "Rodapé 2"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:101
+msgid "Footer Sidebar 3"
+msgstr "Rodapé 3"
+
+#: /home/rafael/www/dw-focus/inc/dw-focus-sidebar.php:110
+msgid "Footer Sidebar 4"
+msgstr "Rodapé 4"
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:67
+msgid "Local Avatar Permissions"
+msgstr "Permissão de foto de perfil"
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:81
+msgid ""
+"Only allow users with file upload capabilities to upload local avatars "
+"(Authors and above)"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:88
+msgid "Avatar"
+msgstr "Foto de Perfil"
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:92
+msgid "Upload Avatar"
+msgstr "Subir foto de perfil"
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:107
+msgid "No local avatar is set. Use the upload field to add a local avatar."
+msgstr ""
+"Não existe uma foto de perfil, use o campo de upload para subir uma foto do "
+"computador"
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:110
+msgid "Delete local avatar"
+msgstr "Deletar foto de perfil atual"
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:111
+msgid ""
+"Replace the local avatar by uploading a new avatar, or erase the local "
+"avatar (falling back to a gravatar) by checking the delete option."
+msgstr ""
+"Substitua a foto de perfil atual, fazendo o upload de uma nova foto de "
+"perfil, ou apague a foto de perfil atual (cair para um gravatar), marcando a "
+"opção de exclusão."
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:115
+msgid "No local avatar is set. Set up your avatar at Gravatar.com."
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/simple-avatar.php:117
+msgid ""
+"You do not have media management permissions. To change your local avatar, "
+"contact the blog administrator."
+msgstr ""
+"Você não tem permissão para gerenciar sua foto de perfil. Para alterar, faça "
+"contato com o editor do blog: editor@geralnasaude.com.br"
+
+#: /home/rafael/www/dw-focus/inc/extras.php:74
+#, php-format
+msgid "Page %s"
+msgstr "Página %s"
+
+#: /home/rafael/www/dw-focus/inc/category-meta.php:11
+#: /home/rafael/www/dw-focus/inc/category-meta.php:49
+msgid "Category Style"
+msgstr "Estilo da categoria"
+
+#: /home/rafael/www/dw-focus/inc/category-meta.php:13
+#: /home/rafael/www/dw-focus/inc/category-meta.php:54
+msgid "none"
+msgstr "nenhum"
+
+#: /home/rafael/www/dw-focus/inc/category-meta.php:30
+#: /home/rafael/www/dw-focus/inc/category-meta.php:73
+msgid "Change style for this category"
+msgstr "Escolher um estilo para esta categoria"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-accordion.php:9
+msgid "Display widgets inside an accordion"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:210
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:163
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:186
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-comments.php:95
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-headlines.php:104
+msgid "Title:"
+msgstr "Título:"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:213
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:166
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:189
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-headlines.php:107
+msgid "Number of posts to show:"
+msgstr "Número de posts para exibir:"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:215
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:168
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:195
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-headlines.php:111
+msgid "Category:"
+msgstr "Categoria:"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:227
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:180
+msgid "Post Format:"
+msgstr "Formato do post:"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:237
+msgid "Show thumbnail for first post only"
+msgstr "Exibir miniatura apenas para o primeiro post"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:243
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:112
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:211
+msgid "Show the meta infomation of post"
+msgstr "Exibir informações apenas sobre o primeiro post"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:246
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:115
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:214
+msgid "Show the date of post"
+msgstr "Exibir a data do post"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:249
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:118
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:217
+msgid "Show the author info"
+msgstr "Ler mais informações sobre o correspondentes"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:252
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:121
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:220
+msgid "Show the category info"
+msgstr "Exibir informações da categoria"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:257
+msgid "Choose an image size"
+msgstr "escolher outro tamanho de imagem"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:266
+msgid "Show readmore content"
+msgstr "Ler mais posts"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:344
+msgid "Display latest news with many settings"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:345
+msgid "DW Focus: Recent News"
+msgstr "DW Focus:Posts recentes"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:357
+msgid "Display most viewed news with many settings"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:358
+msgid "DW Focus: Popular News"
+msgstr "DW Focus:  Posts Populares"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:415
+msgid "Display featured news with many settings"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-recent-posts.php:416
+msgid "DW Focus: Featured News"
+msgstr "DW Focus: Noticias em destaque"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:15
+msgid "Display News from Category"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:105
+msgid "Number of post"
+msgstr "Número de posts"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:124
+msgid "Choose style for block category"
+msgstr "Escolher um estilo para a categoria"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:125
+msgid "full width"
+msgstr "Tela inteira"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:126
+msgid "3 cols"
+msgstr "3 colunas"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:138
+msgid "Select categories for showing content"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:182
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:206
+msgid "All"
+msgstr "Todas"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-categories.php:214
+msgid "-- All --"
+msgstr "-- Todas --"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-tabs.php:15
+msgid "Display widgets inside a tab"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:11
+msgid "Display News as a Carousel"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:12
+msgid "DW Focus: News Carousel"
+msgstr "DW Focus: Notícias em Carrossel"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:37
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-headlines.php:36
+msgid "Recent Posts"
+msgstr "Posts recentes"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:190
+msgid "Interval time (0 for disabled)"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-carousel.php:191
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:193
+msgid "second(s)"
+msgstr "segundo(os)"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:11
+msgid "Display News as a Slider"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:12
+msgid "DW Focus: News Slider"
+msgstr "DW Focus: Slider de Notícias"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-slider.php:192
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-headlines.php:109
+msgid "Interval time (0 for disabled):"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-dynamic-widget.php:53
+msgid "Drag & Drop widget that will be become a tab."
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-dynamic-widget.php:97
+msgid "There are no options for this widget."
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-dynamic-widget.php:104
+msgid "Delete"
+msgstr "Deletar"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-dynamic-widget.php:105
+msgid "Close"
+msgstr "Fechar"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-dynamic-widget.php:108
+msgid "Save"
+msgstr "Salvas"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-comments.php:13
+msgid "The most recent comments"
+msgstr "Comentários mais recentes"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-comments.php:14
+msgid "DW Focus: Recent Comments"
+msgstr "DW Focurs: Comentários recentes"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-comments.php:44
+msgid "DW Recent Comments"
+msgstr "DW Comentários recentes"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-comments.php:98
+msgid "Number of comments to show:"
+msgstr "Número de comentários para exibir"
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-headlines.php:10
+msgid "Display latest news as a headline scroll"
+msgstr ""
+
+#: /home/rafael/www/dw-focus/inc/widgets/dw-focus-latest-headlines.php:11
+msgid "DW Focus: Headlines"
+msgstr "DW Focus: Manchetes"
