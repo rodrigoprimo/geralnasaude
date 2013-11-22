@@ -70,7 +70,7 @@
         </nav>
 </div> <!-- #menu2 -->
 
-<p id="bt-geral-part"><a href="/?page_id=1172" class="btn btn-primary btn-large btn-primary">Seja um correspondente</a></p>
+<p id="bt-geral-part"><a href="/?page_id=1172" class="btn btn-primary btn-large btn-primary">Convite</a></p>
 
 		            <?php // if( is_active_sidebar( 'dw_focus_header' ) ) { ?>
 		            <!--div id="sidebar-header" class="span9">
