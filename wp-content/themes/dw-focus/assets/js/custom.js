@@ -35,6 +35,8 @@ jQuery(function($) {
 		$('.my-profile #item-meta').append('<a href="/wp-admin/post-new.php" class="btn btn-primary">Nova postagem</a><br/><br/><a class="btn btn-primary" href="/wp-admin/profile.php#description">Editar bio</a>');
 		$('#secondary .widget.latest-news .widget-title').html('Popular');
 
+		$('.bbp-username label').html('Username ou e-mail:');
+
 		//hide
 		$('#habla_middle_div').next("div").hide();
 	});

@@ -51,11 +51,13 @@
 				<li id="menu-item-1253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item menu-item-1253 0"><a href="/correspondentes/">Correspondentes</a></li>
 				<li id="menu-item-1260" class="menu-item menu-item-type-post_type menu-item-object-page menu-parent-item menu-parent-item menu-item-1253 0"><a href="#">UBS</a><i class="sub-menu-collapse icon-chevron-down hidden-desktop"></i>
 					<ul class="sub-menu">
-						<li id="menu-item-1261" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1255 active 1"><a href="/tag/castro-alves/">Castro Alves</a></li>
+						<li id="menu-item-1261" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1255 1"><a href="/tag/castro-alves/">Castro Alves</a></li>
 						<li id="menu-item-1262" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1254 1"><a href="/tag/gaivotas/">Gaivotas</a></li>
+						<li id="menu-item-1263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1256 1"><a href="/tag/jardim-das-fontes/">Jardim das Fontes</a></li>
 						<li id="menu-item-1263" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1256 1"><a href="/tag/jardim-eliane/">Jardim Eliane</a></li>
 						<li id="menu-item-1264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1257 1"><a href="/tag/jardim-ipora/">Jardim Iporã</a></li>
-						<li id="menu-item-1265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1255 active 1"><a href="/tag/jardim-santa-fe/">Jardim Santa Fé</a></li>
+						<li id="menu-item-1264" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1257 1"><a href="/tag/jardim-novo-horizonte/">Jardim Novo Horizonte</a></li>
+						<li id="menu-item-1265" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1255 1"><a href="/tag/jardim-santa-fe/">Jardim Santa Fé</a></li>
 						<li id="menu-item-1266" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1254 1"><a href="/tag/jardim-silveira/">Jardim Silveira</a></li>
 						<li id="menu-item-1267" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1256 1"><a href="/tag/marsilac/">Marsilac</a></li>
 						<li id="menu-item-1268" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1257 1"><a href="/tag/recanto-campo-belo/">Recanto Campo Belo</a></li>
@@ -70,7 +72,7 @@
         </nav>
 </div> <!-- #menu2 -->
 
-<p id="bt-geral-part"><a href="/?page_id=1172" class="btn btn-primary btn-large btn-primary">Convite</a></p>
+<p id="bt-geral-part"><a href="/?page_id=1172" class="btn btn-primary btn-large btn-primary">Participe</a></p>
 
 		            <?php // if( is_active_sidebar( 'dw_focus_header' ) ) { ?>
 		            <!--div id="sidebar-header" class="span9">

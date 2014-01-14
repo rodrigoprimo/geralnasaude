@@ -947,6 +947,8 @@ function dw_get_plusones_share_count($url)  {
     return isset($json[0]['result']['metadata']['globalCounts']['count'])?intval( $json[0]['result']['metadata']['globalCounts']['count'] ):0;
 }
 
+/* GNS custom *****************************/
+
 add_role('correspondente', 'Correspondente', array(
     'read' => true, // True allows that capability
     'edit_posts' => true,
