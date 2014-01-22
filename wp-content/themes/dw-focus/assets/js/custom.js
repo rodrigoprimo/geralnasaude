@@ -11,15 +11,15 @@ jQuery(function($) {
 
 	// GNS
 	$(document).ready(function() {
-		$('input#nome').before('<span class="help-block">Escreva com bastante atenção para aprendermos bem!</span>');
-		$('input#apelido').before('<span class="help-block">Se você tem mais de um nome ou prefere o apelido, conte para a gente!</span>');
-		$('select#nascimento-dy').before('<span class="help-block">Atenção, você não nasceu em 2013!</span>');
+//		$('input#nome').before('<span class="help-block">Escreva com bastante atenção para aprendermos bem!</span>');
+//		$('input#apelido').before('<span class="help-block">Se você tem mais de um nome ou prefere o apelido, conte para a gente!</span>');
+//		$('select#nascimento-dy').before('<span class="help-block">Atenção, você não nasceu em 2013!</span>');
 		$('.option-field.date .simplr-clr').hide();
 		
-		$('input#mae').before('<span class="help-block">Para o caso de alguém ter nomes iguais, a gente diferencia colocando o nome da mãe também.<span>');
-		$('input#escola_professor').before('<span class="help-block">Diga o nome e que aula ele dá.</span>');
-		$('textarea#anjo').before('<span class="help-block">Conte para nós o nome e qual a sua relação com essa pessoa.</span>');
-		$('input#celular').before('<span class="help-block">11 9-xxxx-xxxx</span>');
+//		$('input#mae').before('<span class="help-block">Para o caso de alguém ter nomes iguais, a gente diferencia colocando o nome da mãe também.<span>');
+//		$('input#escola_professor').before('<span class="help-block">Diga o nome e que aula ele dá.</span>');
+//		$('textarea#anjo').before('<span class="help-block">Conte para nós o nome e qual a sua relação com essa pessoa.</span>');
+//		$('input#celular').before('<span class="help-block">11 9-xxxx-xxxx</span>');
 
 		$('#simplr-form input[type=checkbox]').attr('checked',false);
 
@@ -29,16 +29,23 @@ jQuery(function($) {
 
 
 		//tel val
-		$('input#celular').mask('(99) 9-9999-9999');	
+//		$('input#celular').mask('(99) 9-9999-9999');	
 		
 		// appends
 		$('.my-profile #item-meta').append('<a href="/wp-admin/post-new.php" class="btn btn-primary">Nova postagem</a><br/><br/><a class="btn btn-primary" href="/wp-admin/profile.php#description">Editar bio</a>');
 		$('#secondary .widget.latest-news .widget-title').html('Popular');
 
-		$('.bbp-username label').html('Username ou e-mail:');
+		$('.bbp-username label').html('E-mail:');
 
 		//hide
 		$('#habla_middle_div').next("div").hide();
+
+		//registro hide username e copy email
+		$('.page-id-1172 input[name=username], .page-id-1172 label[for=username]').hide();
+		$('.page-id-1172 input[name=email_confirm]').blur(function(){
+			$('.page-id-1172 input[name=username]').val($('.page-id-1172 input[name=email_confirm]').val());
+		});
+		
 	});
 
     // Accordion

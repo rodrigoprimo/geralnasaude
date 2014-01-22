@@ -243,7 +243,7 @@ function simplr_setup_user($atts,$data) {
 
 	$extra = "Obrigado por se cadastrar no <b>Geral na Saúde</b>."; 
 	$extra = apply_filters('simplr_extra_message', __($extra,'simplr-reg') );
-	$confirm = '<div class="simplr-message alert alert-success"><strong>Registro realizado com sucesso.</strong> '.$extra .'</div><div class="alert alert-alert">Por favor, <b>cheque sua caixa de spam</b> caso não receba o e=mail de confirmação. Caso o problema persista, fale com a gente.</div><div class="alert alert-info">Para logar, use a caixa "Login do correspondente" na barra lateral »»»</div>';
+	$confirm = '<div class="simplr-message alert alert-success"><strong>Registro realizado com sucesso.</strong> '.$extra .'</div><div class="alert alert-alert">Por favor, <b>cheque sua caixa de spam</b> caso não receba o e-mail de confirmação. Caso o problema persista, fale com a gente.</div><div class="alert alert-info">Para logar, use a caixa "Login do correspondente" na barra lateral »»»</div>';
 	
 	
 	//Use this hook for multistage registrations
