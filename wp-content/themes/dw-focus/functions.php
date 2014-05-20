@@ -1079,4 +1079,7 @@ function custom_loginlogo_url($url) {
 	return 'http://geralnasaude.com.br';
 }
 
+// widget shortcodes
+add_filter('widget_text', 'do_shortcode');
+
 ?>
