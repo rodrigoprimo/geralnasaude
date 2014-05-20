@@ -40,11 +40,23 @@ jQuery(function($) {
 		//hide
 		$('#habla_middle_div').next("div").hide();
 
-		//registro hide username e copy email
+		//registro*******************
+
+		//  hide username e copy email
 		$('.page-id-1172 input[name=username], .page-id-1172 label[for=username]').hide();
 		$('.page-id-1172 input[name=email_confirm]').blur(function(){
 			$('.page-id-1172 input[name=username]').val($('.page-id-1172 input[name=email_confirm]').val());
 		});
+
+		/*/
+
+		var elemento = ".simplr-message.error div";
+		var elemento2 = elemento.substring(0,21);
+	
+		$(elemento).removeClass();
+		$(elemento2).addClass("alert");
+		$(elemento2).addClass("alert-alert");
+		*/
 		
 	});
 

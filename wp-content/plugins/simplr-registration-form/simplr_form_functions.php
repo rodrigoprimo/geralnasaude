@@ -24,7 +24,7 @@ function simplr_validate($data,$atts) {
 		if($data['password'] != $data['password_confirm']) 
 		{
 		//	$errors[] = __('The passwords you entered do not match.', 'simplr-reg');
-			$errors[] = __('<div class="alert alert-error">As senhas digitadas não conferem.</div>', 'simplr-reg');
+			$errors[] = __('<div class="alert alert-error">Por favor, digite sua senha com atenção para conseguir fazer login no blog.</div>', 'simplr-reg');
 			add_filter('password_error_class','_sreg_return_error');
 		} 
 		elseif(empty($data['password']))
@@ -50,7 +50,7 @@ function simplr_validate($data,$atts) {
 		// check whether username already exists
 		$user_id = username_exists( $data['username'] );
 			if($user_id) {
-					$errors[] .= __('<div class="alert alert-alert">Este nome de usuário já existe.</div>','simplr-reg');
+					$errors[] .= __('<div class="alert alert-alert">O Geral na Saúde inscreveu o seu e-mail. Você já pode fazer o seu login!</div>','simplr-reg');
 					add_filter('username_error_class','_sreg_return_error');
 				}
 	} //end username validation
@@ -62,15 +62,16 @@ function simplr_validate($data,$atts) {
 		$errors[] = __("<div class='alert alert-alert'>Digite um e-mail.</div>",'simplr-reg'); 
 		add_filter('email_error_class','_sreg_return_error');
 	} elseif($data['email'] !== $data['email_confirm']) {
-		$errors[] = __("The emails you entered do not match.",'simplr-reg'); 
+		$errors[] = __("<div class='alert alert-alert'>Digite o seu e-mail com cuidado nas duas caixas, assim podemos entrar em contato com você.</div>",'simplr-reg'); 
+
 	} else {
 		$email_test = email_exists($data['email']);
 		if($email_test != false) {
-				$errors[] .= __('An account with this email has already been registered.','simplr-reg');
+				$errors[] .= __('<div class="alert alert-alert">Já foi registrada uma conta com esse e-mail.</div>','simplr-reg');
 				add_filter('email_error_class','_sreg_return_error');
 			}
 		if( !is_email($data['email']) ) {
-				$errors[] .= __("Please enter a valid email.",'simplr-reg');
+				$errors[] .= __("<div class='alert alert-alert'>Digite um e-mail válido.</div>",'simplr-reg');
 				add_filter('email_error_class','_sreg_return_error');
 			}	
 	} // end email validation
@@ -243,7 +244,7 @@ function simplr_setup_user($atts,$data) {
 
 	$extra = "Obrigado por se cadastrar no <b>Geral na Saúde</b>."; 
 	$extra = apply_filters('simplr_extra_message', __($extra,'simplr-reg') );
-	$confirm = '<div class="simplr-message alert alert-success"><strong>Registro realizado com sucesso.</strong> '.$extra .'</div><div class="alert alert-alert">Por favor, <b>cheque sua caixa de spam</b> caso não receba o e-mail de confirmação. Caso o problema persista, fale com a gente.</div><div class="alert alert-info">Para logar, use a caixa "Login do correspondente" na barra lateral »»»</div>';
+	$confirm = '<div class="simplr-message alert alert-success"><strong>Você já é correspondente do Geral na Saúde!.</strong> Faça seu login para começar a nos mandar suas publicações. '.$extra .'</div><div class="alert alert-info">Para logar, use a caixa "Login do correspondente" na barra lateral »»»</div>';
 	
 	
 	//Use this hook for multistage registrations
