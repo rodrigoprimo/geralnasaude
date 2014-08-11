@@ -46,6 +46,8 @@
 						<li id="menu-item-1250" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1250 color-none 1"><a href="/categoria/instrucoes/">Instruções</a></li>
 						<li id="menu-item-1251" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1251 color-none 1"><a href="/categoria/pautas">Pautas</a></li>
 						<li id="menu-item-1252" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1252 active color-none 1"><a href="/sugestao-de-pauta/">Sugestão de Pauta</a></li>
+						<li id="menu-item-1253" class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1252 active color-none 1"><a href="/politica-de-privacidade/">Política de Privacidade</a></li>
+	
 					</ul>
 				</li>
 				<!--li id="menu-item-1253" class="menu-item menu-item-type-post_type menu-item-object-page menu-item menu-item-1253 0"><a href="/correspondentes/">Correspondentes</a></li-->
