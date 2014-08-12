@@ -26,6 +26,22 @@ jQuery(function($) {
 		// correspondente
 //		$('label[for="educador_ubs"]').after("<span class='help-block'>Aqui estão listadas as UBS do projeto piloto. Se você for professor, pode clicar em 'Outro' e especificar a escola onde trabalha.</span>");
 //		$('label[for="educador_ubs_period"]').after("<span class='help-block'>Caso você seja professor, qual a periodicidade das atividades extracurriculares que faz com os alunos de sua escola?</span>");
+			
+		
+
+		$(".home .carousel-list li").click(function(){
+		
+			if ( $(this).hasClass("active") ) {
+			
+				var linq = $(this).find("a").attr("href");
+
+				window.location = linq;	
+
+				// alert(linq);
+			} 
+
+		});	
+
 
 
 		//tel val

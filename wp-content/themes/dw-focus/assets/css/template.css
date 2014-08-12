@@ -32,6 +32,10 @@ select, textarea, input[type="text"], input[type="password"], input[type="dateti
 
 .simplr-clr {height:20px;}
 
+.tags-links {font-size:18px;}
+
+.navbar .nav .menu-item-object-category .sub-mega-wrap .subcat span {display:none;}
+
 /* menu2 ****************************************/
 
 #menu2 {float:right;}
