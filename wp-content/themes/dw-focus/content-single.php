@@ -21,10 +21,25 @@
 				    the_author_posts_link();
 				}		
 */
+
+
  $gns_id = get_the_author_meta("ID" );
  $all_meta_for_user = get_user_meta($gns_id);
  $gns_nome = $all_meta_for_user['nome'][0];
- print_r( $gns_nome );			
+
+if ( $gns_nome != "" ) {
+	print_r( "<a href='". get_author_posts_url( get_the_author_meta( 'ID' ) ) ."'>". $gns_nome ."</a>" );			
+
+} else {
+if ( function_exists( 'coauthors_posts_links' ) ) {
+				    coauthors_posts_links();
+				} else {
+				    the_author_posts_link();
+				}
+
+}
+
+
 ?>
 
 		</div><!-- .entry-meta -->

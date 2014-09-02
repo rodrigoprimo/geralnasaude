@@ -48,7 +48,26 @@
                             <?php printf( __( '<span> on </span>%1$s', 'dw_focus' ), $categories_list ); ?>
                         </span>
                         <?php endif; ?>
-                        <span class="author">por <?php the_author_posts_link(); ?> </span>
+                        <span class="author">por <?php // the_author_posts_link(); 
+  
+ $gns_id = get_the_author_meta("ID" );
+ $all_meta_for_user = get_user_meta($gns_id);
+ $gns_nome = $all_meta_for_user['nome'][0];
+
+if ( $gns_nome != "" ) {
+	print_r( "<a href='". get_author_posts_url( get_the_author_meta( 'ID' ) ) ."'>". $gns_nome ."</a>" );			
+
+} else {
+if ( function_exists( 'coauthors_posts_links' ) ) {
+				    coauthors_posts_links();
+				} else {
+				    the_author_posts_link();
+				}
+
+}
+
+?> 
+			</span>
                     </div>
                 </header>
             <?php endif; ?>
@@ -70,8 +89,37 @@
                         <?php printf( __( '<span> on </span>%1$s', 'dw_focus' ), $categories_list ); ?>
                     </span>
                     <?php endif; // End if categories ?>
+                        <span class="author">por <?php // the_author_posts_link(); 
+ $gns_id = get_the_author_meta("ID" );
 
-                    <span class="author">por <?php the_author_posts_link(); ?> </span>
+
+// user id 398 com problema, aparece 4892
+
+if ($gns_id == 4892 ) {
+	$all_meta_for_user = get_user_meta(398);
+} else {
+
+ $all_meta_for_user = get_user_meta($gns_id);
+
+}
+
+
+
+
+ $gns_nome = $all_meta_for_user['nome'][0];
+if ( $gns_nome != "" ) {
+	print_r( "<a href='". get_author_posts_url( get_the_author_meta( 'ID' ) ) ."'>". $gns_nome ."</a>" );			
+
+} else {
+if ( function_exists( 'coauthors_posts_links' ) ) {
+				    coauthors_posts_links();
+				} else {
+				    the_author_posts_link();
+				}
+
+}
+?> </span>
+
                 </div>
             </header>
 

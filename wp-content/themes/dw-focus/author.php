@@ -49,8 +49,35 @@ get_header(); ?>
         </div><!-- .entry-author -->
 
     	<div class="content-bar row-fluid">
-           <h1 class="page-title author"><?php printf( __( 'Author Archives: %s', 'dw_focus' ), '<span class="vcard">'.get_the_author() ); ?></h1>
-            </h1>
+           <h1 class="page-title author">Correspondente <?php 
+
+	//	printf( __( 'Author Archives: %s', 'dw_focus' ), '<span class="vcard">'.get_the_author() ); 
+
+	 $gns_id = get_the_author_meta("ID");
+// user id 398 com problema, aparece 4892
+
+if ($gns_id == 4892 ) {
+	$all_meta_for_user = get_user_meta(398);
+} else {
+
+ $all_meta_for_user = get_user_meta($gns_id);
+
+}
+
+ $gns_nome = $all_meta_for_user['nome'][0];
+
+if ( $gns_nome != "" ) {
+	print_r( $gns_nome );			
+
+//	echo $gns_id;	
+} else {
+ echo get_the_author();
+//	print_r( $all_meta_for_user );		
+
+//echo $gns_id;	
+}	
+
+	?></h1>
 
             <div class="post-layout">
                 <a class="layout-list active" href="#"><i class="icon-th-list"></i></a>

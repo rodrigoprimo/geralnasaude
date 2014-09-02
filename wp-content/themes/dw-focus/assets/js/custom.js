@@ -28,7 +28,7 @@ jQuery(function($) {
 //		$('label[for="educador_ubs_period"]').after("<span class='help-block'>Caso você seja professor, qual a periodicidade das atividades extracurriculares que faz com os alunos de sua escola?</span>");
 			
 		
-
+		// ajuste slide home
 		$(".home .carousel-list li").click(function(){
 		
 			if ( $(this).hasClass("active") ) {
@@ -42,6 +42,10 @@ jQuery(function($) {
 
 		});	
 
+		if ( $("body").hasClass("author")  ) {
+
+			document.title = "Correspondente | Geral na Saúde"
+		}
 
 
 		//tel val
