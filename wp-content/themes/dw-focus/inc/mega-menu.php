@@ -1,4 +1,4 @@
-	<?php
+<?php
 /**
  * Custom walker for mega menu
  * 
