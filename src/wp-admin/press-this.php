@@ -9,7 +9,7 @@
 define('IFRAME_REQUEST' , true);
 
 /** WordPress Administration Bootstrap */
-require_once( dirname( __FILE__ ) . '/admin.php' );
+require_once('./admin.php');
 
 header('Content-Type: ' . get_option('html_type') . '; charset=' . get_option('blog_charset'));
 
@@ -19,6 +19,8 @@ if ( ! current_user_can( 'edit_posts' ) || ! current_user_can( get_post_type_obj
 /**
  * Press It form handler.
  *
+ * @package WordPress
+ * @subpackage Press_This
  * @since 2.6.0
  *
  * @return int Post ID
@@ -40,7 +42,7 @@ function press_it() {
 	$upload = false;
 	if ( !empty($_POST['photo_src']) && current_user_can('upload_files') ) {
 		foreach( (array) $_POST['photo_src'] as $key => $image) {
-			// See if files exist in content - we don't want to upload non-used selected files.
+			// see if files exist in content - we don't want to upload non-used selected files.
 			if ( strpos($_POST['content'], htmlspecialchars($image)) !== false ) {
 				$desc = isset($_POST['photo_description'][$key]) ? $_POST['photo_description'][$key] : '';
 				$upload = media_sideload_image($image, $post_ID, $desc);
@@ -51,7 +53,7 @@ function press_it() {
 			}
 		}
 	}
-	// Set the post_content and status.
+	// set the post_content and status
 	$post['post_content'] = $content;
 	if ( isset( $_POST['publish'] ) && current_user_can( 'publish_posts' ) )
 		$post['post_status'] = 'publish';
@@ -60,12 +62,12 @@ function press_it() {
 	else
 		$post['post_status'] = 'draft';
 
-	// Error handling for media_sideload.
+	// error handling for media_sideload
 	if ( is_wp_error($upload) ) {
 		wp_delete_post($post_ID);
-		wp_die( esc_html( $upload->get_error_message() ) );
+		wp_die($upload);
 	} else {
-		// Post formats.
+		// Post formats
 		if ( isset( $_POST['post_format'] ) ) {
 			if ( current_theme_supports( 'post-formats', $_POST['post_format'] ) )
 				set_post_format( $post_ID, $_POST['post_format'] );
@@ -89,11 +91,11 @@ if ( isset($_REQUEST['action']) && 'post' == $_REQUEST['action'] ) {
 }
 
 // Set Variables
-$title = isset( $_GET['t'] ) ? trim( strip_tags( html_entity_decode( wp_unslash( $_GET['t'] ) , ENT_QUOTES) ) ) : '';
+$title = isset( $_GET['t'] ) ? trim( strip_tags( html_entity_decode( stripslashes( $_GET['t'] ) , ENT_QUOTES) ) ) : '';
 
 $selection = '';
 if ( !empty($_GET['s']) ) {
-	$selection = str_replace('&apos;', "'", wp_unslash($_GET['s']));
+	$selection = str_replace('&apos;', "'", stripslashes($_GET['s']));
 	$selection = trim( htmlspecialchars( html_entity_decode($selection, ENT_QUOTES) ) );
 }
 
@@ -144,7 +146,7 @@ if ( !empty($_REQUEST['ajax']) ) {
 			<h3 class="tb"><label for="tb_this_photo_description"><?php _e('Description') ?></label></h3>
 			<div class="titlediv">
 				<div class="titlewrap">
-					<input id="tb_this_photo_description" name="photo_description" class="tb_this_photo_description tbtitle text" type="text" onkeypress="if(event.keyCode==13) image_selector(this);" value="<?php echo esc_attr($title);?>"/>
+					<input id="tb_this_photo_description" name="photo_description" class="tb_this_photo_description tbtitle text" onkeypress="if(event.keyCode==13) image_selector(this);" value="<?php echo esc_attr($title);?>"/>
 				</div>
 			</div>
 
@@ -161,6 +163,8 @@ if ( !empty($_REQUEST['ajax']) ) {
 		/**
 		 * Retrieve all image URLs from given URI.
 		 *
+		 * @package WordPress
+		 * @subpackage Press_This
 		 * @since 2.6.0
 		 *
 		 * @param string $uri
@@ -181,10 +185,9 @@ if ( !empty($_REQUEST['ajax']) ) {
 				return '';
 			$sources = array();
 			foreach ($matches[3] as $src) {
-
-				// If no http in URL.
+				// if no http in url
 				if (strpos($src, 'http') === false)
-					// If it doesn't have a relative URI.
+					// if it doesn't have a relative uri
 					if ( strpos($src, '../') === false && strpos($src, './') === false && strpos($src, '/') === 0)
 						$src = 'http://'.str_replace('//','/', $host['host'].'/'.$src);
 					else
@@ -198,7 +201,7 @@ if ( !empty($_REQUEST['ajax']) ) {
 		break;
 
 	case 'photo_js': ?>
-		// Gather images and load some default JS.
+		// gather images and load some default JS
 		var last = null
 		var img, img_tag, aspect, w, h, skip, i, strtoappend = "";
 		if(photostorage == false) {
@@ -294,51 +297,22 @@ die;
 
 	wp_enqueue_style( 'colors' );
 	wp_enqueue_script( 'post' );
-	add_thickbox();
 	_wp_admin_html_begin();
 ?>
 <title><?php _e('Press This') ?></title>
 <script type="text/javascript">
 //<![CDATA[
 addLoadEvent = function(func){if(typeof jQuery!="undefined")jQuery(document).ready(func);else if(typeof wpOnload!='function'){wpOnload=func;}else{var oldonload=wpOnload;wpOnload=function(){oldonload();func();}}};
+var userSettings = {'url':'<?php echo SITECOOKIEPATH; ?>','uid':'<?php if ( ! isset($current_user) ) $current_user = wp_get_current_user(); echo $current_user->ID; ?>','time':'<?php echo time() ?>'};
 var ajaxurl = '<?php echo admin_url( 'admin-ajax.php', 'relative' ); ?>', pagenow = 'press-this', isRtl = <?php echo (int) is_rtl(); ?>;
 var photostorage = false;
 //]]>
 </script>
 
 <?php
-	/** This action is documented in wp-admin/admin-header.php */
-	do_action( 'admin_enqueue_scripts', 'press-this.php' );
-
-	/**
-	 * Fires when styles are printed for the Press This admin page.
-	 *
-	 * @since 3.7.0
-	 */
-	do_action( 'admin_print_styles-press-this.php' );
-
-	/** This action is documented in wp-admin/admin-header.php */
-	do_action( 'admin_print_styles' );
-
-	/**
-	 * Fires when scripts are printed for the Press This admin page.
-	 *
-	 * @since 3.7.0
-	 */
-	do_action( 'admin_print_scripts-press-this.php' );
-
-	/** This action is documented in wp-admin/admin-header.php */
-	do_action( 'admin_print_scripts' );
-
-	/**
-	 * Fires in the head tag on the Press This admin page.
-	 *
-	 * @since 3.7.0
-	 */
-	do_action( 'admin_head-press-this.php' );
-
-	/** This action is documented in wp-admin/admin-header.php */
-	do_action( 'admin_head' );
+	do_action('admin_print_styles');
+	do_action('admin_print_scripts');
+	do_action('admin_head');
 ?>
 	<script type="text/javascript">
 	var wpActiveEditor = 'content';
@@ -439,16 +413,12 @@ var photostorage = false;
 		}
 	}
 	jQuery(document).ready(function($) {
-		var $contnet = $( '#content' );
-
-		// Resize screen.
-		window.resizeTo(760,580);
-
-		// Set button actions.
+		//resize screen
+		window.resizeTo(740,580);
+		// set button actions
 		jQuery('#photo_button').click(function() { show('photo'); return false; });
 		jQuery('#video_button').click(function() { show('video'); return false; });
-
-		// Auto select.
+		// auto select
 		<?php if ( preg_match("/youtube\.com\/watch/i", $url) ) { ?>
 			show('video');
 		<?php } elseif ( preg_match("/vimeo\.com\/[0-9]+/i", $url) ) { ?>
@@ -462,12 +432,6 @@ var photostorage = false;
 		$('#tagsdiv-post_tag, #categorydiv').children('h3, .handlediv').click(function(){
 			$(this).siblings('.inside').toggle();
 		});
-
-		if ( $( '#wp-content-wrap' ).hasClass( 'html-active' ) && window.switchEditors &&
-			( tinyMCEPreInit.mceInit.content && tinyMCEPreInit.mceInit.content.wpautop ) ) {
-			// The Text editor is default, run the initial content through pre_wpautop() to convert the paragraphs
-			$contnet.text( window.switchEditors.pre_wpautop( $contnet.text() ) );
-		}
 	});
 </script>
 </head>
@@ -513,7 +477,7 @@ $admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( 
 					<p>
 						<label for="post_format"><?php _e( 'Post Format:' ); ?>
 						<select name="post_format" id="post_format">
-							<option value="0"><?php echo get_post_format_string( 'standard' ); ?></option>
+							<option value="0"><?php _ex( 'Standard', 'Post format' ); ?></option>
 						<?php foreach ( $post_formats[0] as $format ): ?>
 							<option<?php selected( $default_format, $format ); ?> value="<?php echo esc_attr( $format ); ?>"> <?php echo esc_html( get_post_format_string( $format ) ); ?></option>
 						<?php endforeach; ?>
@@ -597,6 +561,7 @@ $admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( 
 	<div class="posting">
 
 		<div id="wphead">
+			<img id="header-logo" src="<?php echo esc_url( includes_url( 'images/blank.gif' ) ); ?>" alt="" width="16" height="16" />
 			<h1 id="site-heading">
 				<a href="<?php echo get_option('home'); ?>/" target="_blank">
 					<span id="site-title"><?php bloginfo('name'); ?></span>
@@ -617,11 +582,11 @@ $admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( 
 
 		<div id="titlediv">
 			<div class="titlewrap">
-				<input name="title" id="title" class="text" type="text" value="<?php echo esc_attr($title);?>"/>
+				<input name="title" id="title" class="text" value="<?php echo esc_attr($title);?>"/>
 			</div>
 		</div>
 
-		<div id="waiting" style="display: none"><span class="spinner"></span> <span><?php esc_html_e( 'Loading&hellip;' ); ?></span></div>
+		<div id="waiting" style="display: none"><span class="spinner"></span> <span><?php esc_html_e( 'Loading...' ); ?></span></div>
 
 		<div id="extra-fields" style="display: none"></div>
 
@@ -681,10 +646,8 @@ $admin_body_class .= ' locale-' . sanitize_html_class( strtolower( str_replace( 
 	</tr></table>
 </div>
 <?php
-/** This action is documented in wp-admin/admin-footer.php */
-do_action( 'admin_footer' );
-/** This action is documented in wp-admin/admin-footer.php */
-do_action( 'admin_print_footer_scripts' );
+do_action('admin_footer');
+do_action('admin_print_footer_scripts');
 ?>
 <script type="text/javascript">if(typeof wpOnload=='function')wpOnload();</script>
 </body>

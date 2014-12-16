@@ -7,7 +7,7 @@
  */
 
 /** WordPress Administration Bootstrap */
-require_once( dirname( __FILE__ ) . '/admin.php' );
+require_once( './admin.php' );
 
 if ( ! current_user_can( 'manage_options' ) )
 	wp_die( __( 'You do not have sufficient permissions to manage options for this site.' ) );
@@ -63,19 +63,20 @@ get_current_screen()->add_help_tab( array(
 	'id'      => 'site-visibility',
 	'title'   => has_action( 'blog_privacy_selector' ) ? __( 'Site Visibility' ) : __( 'Search Engine Visibility' ),
 	'content' => '<p>' . __( 'You can choose whether or not your site will be crawled by robots, ping services, and spiders. If you want those services to ignore your site, click the checkbox next to &#8220;Discourage search engines from indexing this site&#8221; and click the Save Changes button at the bottom of the screen. Note that your privacy is not complete; your site is still visible on the web.' ) . '</p>' .
-		'<p>' . __( 'When this setting is in effect, a reminder is shown in the At a Glance box of the Dashboard that says, &#8220;Search Engines Discouraged,&#8221; to remind you that your site is not being crawled.' ) . '</p>',
+		'<p>' . __( 'When this setting is in effect, a reminder is shown in the Right Now box of the Dashboard that says, &#8220;Search Engines Discouraged,&#8221; to remind you that your site is not being crawled.' ) . '</p>',
 ) );
 
 get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __('For more information:') . '</strong></p>' .
 	'<p>' . __('<a href="http://codex.wordpress.org/Settings_Reading_Screen" target="_blank">Documentation on Reading Settings</a>') . '</p>' .
-	'<p>' . __('<a href="https://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
+	'<p>' . __('<a href="http://wordpress.org/support/" target="_blank">Support Forums</a>') . '</p>'
 );
 
-include( ABSPATH . 'wp-admin/admin-header.php' );
+include( './admin-header.php' );
 ?>
 
 <div class="wrap">
+<?php screen_icon(); ?>
 <h2><?php echo esc_html( $title ); ?></h2>
 
 <form method="post" action="options.php">
@@ -99,7 +100,7 @@ else :
 		update_option( 'show_on_front', 'posts' );
 ?>
 <table class="form-table">
-<tr>
+<tr valign="top">
 <th scope="row"><?php _e( 'Front page displays' ); ?></th>
 <td id="front-static-pages"><fieldset><legend class="screen-reader-text"><span><?php _e( 'Front page displays' ); ?></span></legend>
 	<p><label>
@@ -122,17 +123,17 @@ else :
 </fieldset></td>
 </tr>
 <?php endif; ?>
-<tr>
+<tr valign="top">
 <th scope="row"><label for="posts_per_page"><?php _e( 'Blog pages show at most' ); ?></label></th>
 <td>
 <input name="posts_per_page" type="number" step="1" min="1" id="posts_per_page" value="<?php form_option( 'posts_per_page' ); ?>" class="small-text" /> <?php _e( 'posts' ); ?>
 </td>
 </tr>
-<tr>
+<tr valign="top">
 <th scope="row"><label for="posts_per_rss"><?php _e( 'Syndication feeds show the most recent' ); ?></label></th>
 <td><input name="posts_per_rss" type="number" step="1" min="1" id="posts_per_rss" value="<?php form_option( 'posts_per_rss' ); ?>" class="small-text" /> <?php _e( 'items' ); ?></td>
 </tr>
-<tr>
+<tr valign="top">
 <th scope="row"><?php _e( 'For each article in a feed, show' ); ?> </th>
 <td><fieldset><legend class="screen-reader-text"><span><?php _e( 'For each article in a feed, show' ); ?> </span></legend>
 <p><label><input name="rss_use_excerpt" type="radio" value="0" <?php checked( 0, get_option( 'rss_use_excerpt' ) ); ?>	/> <?php _e( 'Full text' ); ?></label><br />
@@ -140,7 +141,7 @@ else :
 </fieldset></td>
 </tr>
 
-<tr class="option-site-visibility">
+<tr valign="top" class="option-site-visibility">
 <th scope="row"><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?> </th>
 <td><fieldset><legend class="screen-reader-text"><span><?php has_action( 'blog_privacy_selector' ) ? _e( 'Site Visibility' ) : _e( 'Search Engine Visibility' ); ?> </span></legend>
 <?php if ( has_action( 'blog_privacy_selector' ) ) : ?>
@@ -149,22 +150,7 @@ else :
 	<input id="blog-norobots" type="radio" name="blog_public" value="0" <?php checked('0', get_option('blog_public')); ?> />
 	<label for="blog-norobots"><?php _e( 'Discourage search engines from indexing this site' ); ?></label>
 	<p class="description"><?php _e( 'Note: Neither of these options blocks access to your site &mdash; it is up to search engines to honor your request.' ); ?></p>
-	<?php
-	/**
-	 * Enable the legacy 'Site Visibility' privacy options.
-	 *
-	 * By default the privacy options form displays a single checkbox to 'discourage' search
-	 * engines from indexing the site. Hooking to this action serves a dual purpose:
-	 * 1. Disable the single checkbox in favor of a multiple-choice list of radio buttons.
-	 * 2. Open the door to adding additional radio button choices to the list.
-	 *
-	 * Hooking to this action also converts the 'Search Engine Visibility' heading to the more
-	 * open-ended 'Site Visibility' heading.
-	 *
-	 * @since 2.1.0
-	 */
-	do_action( 'blog_privacy_selector' );
-	?>
+	<?php do_action('blog_privacy_selector'); ?>
 <?php else : ?>
 	<label for="blog_public"><input name="blog_public" type="checkbox" id="blog_public" value="0" <?php checked( '0', get_option( 'blog_public' ) ); ?> />
 	<?php _e( 'Discourage search engines from indexing this site' ); ?></label>
@@ -181,4 +167,4 @@ else :
 <?php submit_button(); ?>
 </form>
 </div>
-<?php include( ABSPATH . 'wp-admin/admin-footer.php' ); ?>
+<?php include( './admin-footer.php' ); ?>

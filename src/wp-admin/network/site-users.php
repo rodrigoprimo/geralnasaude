@@ -8,7 +8,7 @@
  */
 
 /** Load WordPress Administration Bootstrap */
-require_once( dirname( __FILE__ ) . '/admin.php' );
+require_once( './admin.php' );
 
 if ( ! is_multisite() )
 	wp_die( __( 'Multisite support is not enabled.' ) );
@@ -33,15 +33,11 @@ get_current_screen()->add_help_tab( array(
 get_current_screen()->set_help_sidebar(
 	'<p><strong>' . __('For more information:') . '</strong></p>' .
 	'<p>' . __('<a href="http://codex.wordpress.org/Network_Admin_Sites_Screen" target="_blank">Documentation on Site Management</a>') . '</p>' .
-	'<p>' . __('<a href="https://wordpress.org/support/forum/multisite/" target="_blank">Support Forums</a>') . '</p>'
+	'<p>' . __('<a href="http://wordpress.org/support/forum/multisite/" target="_blank">Support Forums</a>') . '</p>'
 );
 
 $_SERVER['REQUEST_URI'] = remove_query_arg( 'update', $_SERVER['REQUEST_URI'] );
 $referer = remove_query_arg( 'update', wp_get_referer() );
-
-if ( ! empty( $_REQUEST['paged'] ) ) {
-	$referer = add_query_arg( 'paged', (int) $_REQUEST['paged'], $referer );
-}
 
 $id = isset( $_REQUEST['id'] ) ? intval( $_REQUEST['id'] ) : 0;
 
@@ -55,6 +51,10 @@ if ( ! can_edit_network( $details->site_id ) )
 $is_main_site = is_main_site( $id );
 
 switch_to_blog( $id );
+
+$editblog_roles = $wp_roles->roles;
+
+$default_role = get_option( 'default_role' );
 
 $action = $wp_list_table->current_action();
 
@@ -85,10 +85,12 @@ if ( $action ) {
 			if ( !empty( $_POST['newuser'] ) ) {
 				$update = 'adduser';
 				$newuser = $_POST['newuser'];
-				$user = get_user_by( 'login', $newuser );
-				if ( $user && $user->exists() ) {
-					if ( ! is_user_member_of_blog( $user->ID, $id ) )
-						add_user_to_blog( $id, $user->ID, $_POST['new_role'] );
+				$userid = $wpdb->get_var( $wpdb->prepare( "SELECT ID FROM " . $wpdb->users . " WHERE user_login = %s", $newuser ) );
+				if ( $userid ) {
+					$blog_prefix = $wpdb->get_blog_prefix( $id );
+					$user = $wpdb->get_var( "SELECT user_id FROM " . $wpdb->usermeta . " WHERE user_id='$userid' AND meta_key='{$blog_prefix}capabilities'" );
+					if ( $user == false )
+						add_user_to_blog( $id, $userid, $_POST['new_role'] );
 					else
 						$update = 'err_add_member';
 				} else {
@@ -164,19 +166,12 @@ $title = sprintf( __('Edit Site: %s'), $site_url_no_http );
 $parent_file = 'sites.php';
 $submenu_file = 'sites.php';
 
-/**
- * Filter whether to show the Add Existing User form on the Multisite Users screen.
- *
- * @since 3.1.0
- *
- * @param bool $bool Whether to show the Add Existing User form. Default true.
- */
 if ( ! wp_is_large_network( 'users' ) && apply_filters( 'show_network_site_users_add_existing_form', true ) )
 	wp_enqueue_script( 'user-suggest' );
 
-require( ABSPATH . 'wp-admin/admin-header.php' ); ?>
+require('../admin-header.php'); ?>
 
-<script type="text/javascript">
+<script type='text/javascript'>
 /* <![CDATA[ */
 var current_site_id = <?php echo $id; ?>;
 /* ]]> */
@@ -184,6 +179,7 @@ var current_site_id = <?php echo $id; ?>;
 
 
 <div class="wrap">
+<?php screen_icon('ms-admin'); ?>
 <h2 id="edit-site"><?php echo $title_site_url_linked ?></h2>
 <h3 class="nav-tab-wrapper">
 <?php
@@ -249,16 +245,9 @@ endif; ?>
 
 </form>
 
-<?php
-/**
- * Fires after the list table on the Users screen in the Multisite Network Admin.
- *
- * @since 3.1.0
- */
-do_action( 'network_site_users_after_list_table' );
+<?php do_action( 'network_site_users_after_list_table', '' );?>
 
-/** This filter is documented in wp-admin/network/site-users.php */
-if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_users_add_existing_form', true ) ) : ?>
+<?php if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_users_add_existing_form', true ) ) : ?>
 <h3 id="add-existing-user"><?php _e( 'Add Existing User' ); ?></h3>
 <form action="site-users.php?action=adduser" id="adduser" method="post">
 	<input type="hidden" name="id" value="<?php echo esc_attr( $id ) ?>" />
@@ -270,7 +259,13 @@ if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_us
 		<tr>
 			<th scope="row"><?php _e( 'Role' ); ?></th>
 			<td><select name="new_role" id="new_role_0">
-			<?php wp_dropdown_roles( get_option( 'default_role' ) ); ?>
+			<?php
+			reset( $editblog_roles );
+			foreach ( $editblog_roles as $role => $role_assoc ) {
+				$name = translate_user_role( $role_assoc['name'] );
+				echo '<option ' . selected( $default_role, $role, false ) . ' value="' . esc_attr( $role ) . '">' . esc_html( $name ) . '</option>';
+			}
+			?>
 			</select></td>
 		</tr>
 	</table>
@@ -279,15 +274,7 @@ if ( current_user_can( 'promote_users' ) && apply_filters( 'show_network_site_us
 </form>
 <?php endif; ?>
 
-<?php
-/**
- * Filter whether to show the Add New User form on the Multisite Users screen.
- *
- * @since 3.1.0
- *
- * @param bool $bool Whether to show the Add New User form. Default true.
- */
-if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_users_add_new_form', true ) ) : ?>
+<?php if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_users_add_new_form', true ) ) : ?>
 <h3 id="add-new-user"><?php _e( 'Add New User' ); ?></h3>
 <form action="<?php echo network_admin_url('site-users.php?action=newuser'); ?>" id="newuser" method="post">
 	<input type="hidden" name="id" value="<?php echo esc_attr( $id ) ?>" />
@@ -303,7 +290,13 @@ if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_use
 		<tr>
 			<th scope="row"><?php _e( 'Role' ); ?></th>
 			<td><select name="new_role" id="new_role_0">
-			<?php wp_dropdown_roles( get_option( 'default_role' ) ); ?>
+			<?php
+			reset( $editblog_roles );
+			foreach ( $editblog_roles as $role => $role_assoc ) {
+				$name = translate_user_role( $role_assoc['name'] );
+				echo '<option ' . selected( $default_role, $role, false ) . ' value="' . esc_attr( $role ) . '">' . esc_html( $name ) . '</option>';
+			}
+			?>
 			</select></td>
 		</tr>
 		<tr class="form-field">
@@ -316,4 +309,4 @@ if ( current_user_can( 'create_users' ) && apply_filters( 'show_network_site_use
 <?php endif; ?>
 </div>
 <?php
-require( ABSPATH . 'wp-admin/admin-footer.php' );
+require('../admin-footer.php');

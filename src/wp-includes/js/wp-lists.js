@@ -1,4 +1,3 @@
-/* global ajaxurl, wpAjax */
 (function($) {
 var fs = {add:'ajaxAdd',del:'ajaxDel',dim:'ajaxDim',process:'process',recolor:'recolor'}, wpList;
 
@@ -209,7 +208,7 @@ wpList = {
 					s.delAfter( rres, _s );
 				}).dequeue();
 			}
-		};
+		}
 
 		$.ajax( s );
 		return false;
@@ -309,11 +308,7 @@ wpList = {
 	},
 
 	add: function( e, s ) {
-		if ( 'string' == typeof e ) {
-			e = $( $.trim( e ) ); // Trim leading whitespaces
-		} else {
-			e = $( e );
-		}
+		e = $(e);
 
 		var list = $(this), old = false, _s = { pos: 0, id: 0, oldId: null }, ba, ref, color;
 

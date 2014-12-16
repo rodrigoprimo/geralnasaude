@@ -20,17 +20,10 @@ define( 'WPINC', 'wp-includes' );
 // Include files required for initialization.
 require( ABSPATH . WPINC . '/load.php' );
 require( ABSPATH . WPINC . '/default-constants.php' );
-
-/*
- * These can't be directly globalized in version.php. When updating,
- * we're including version.php from another install and don't want
- * these values to be overridden if already set.
- */
-global $wp_version, $wp_db_version, $tinymce_version, $required_php_version, $required_mysql_version;
 require( ABSPATH . WPINC . '/version.php' );
 
 // Set initial default constants including WP_MEMORY_LIMIT, WP_MAX_MEMORY_LIMIT, WP_DEBUG, WP_CONTENT_DIR and WP_CACHE.
-wp_initial_constants();
+wp_initial_constants( );
 
 // Check for the required PHP version and for the MySQL extension or a database drop-in.
 wp_check_php_mysql_versions();
@@ -114,20 +107,16 @@ require( ABSPATH . WPINC . '/class-wp-ajax-response.php' );
 require( ABSPATH . WPINC . '/formatting.php' );
 require( ABSPATH . WPINC . '/capabilities.php' );
 require( ABSPATH . WPINC . '/query.php' );
-require( ABSPATH . WPINC . '/date.php' );
 require( ABSPATH . WPINC . '/theme.php' );
 require( ABSPATH . WPINC . '/class-wp-theme.php' );
 require( ABSPATH . WPINC . '/template.php' );
 require( ABSPATH . WPINC . '/user.php' );
-require( ABSPATH . WPINC . '/session.php' );
 require( ABSPATH . WPINC . '/meta.php' );
 require( ABSPATH . WPINC . '/general-template.php' );
 require( ABSPATH . WPINC . '/link-template.php' );
 require( ABSPATH . WPINC . '/author-template.php' );
 require( ABSPATH . WPINC . '/post.php' );
 require( ABSPATH . WPINC . '/post-template.php' );
-require( ABSPATH . WPINC . '/revision.php' );
-require( ABSPATH . WPINC . '/post-formats.php' );
 require( ABSPATH . WPINC . '/post-thumbnail-template.php' );
 require( ABSPATH . WPINC . '/category.php' );
 require( ABSPATH . WPINC . '/category-template.php' );
@@ -163,9 +152,7 @@ if ( is_multisite() ) {
 
 // Define constants that rely on the API to obtain the default value.
 // Define must-use plugin directory constants, which may be overridden in the sunrise.php drop-in.
-wp_plugin_directory_constants();
-
-$GLOBALS['wp_plugin_paths'] = array();
+wp_plugin_directory_constants( );
 
 // Load must-use plugins.
 foreach ( wp_get_mu_plugins() as $mu_plugin ) {
@@ -176,27 +163,21 @@ unset( $mu_plugin );
 // Load network activated plugins.
 if ( is_multisite() ) {
 	foreach( wp_get_active_network_plugins() as $network_plugin ) {
-		wp_register_plugin_realpath( $network_plugin );
 		include_once( $network_plugin );
 	}
 	unset( $network_plugin );
 }
 
-/**
- * Fires once all must-use and network-activated plugins have loaded.
- *
- * @since 2.8.0
- */
 do_action( 'muplugins_loaded' );
 
 if ( is_multisite() )
 	ms_cookie_constants(  );
 
 // Define constants after multisite is loaded. Cookie-related constants may be overridden in ms_network_cookies().
-wp_cookie_constants();
+wp_cookie_constants( );
 
 // Define and enforce our SSL constants
-wp_ssl_constants();
+wp_ssl_constants( );
 
 // Create common globals.
 require( ABSPATH . WPINC . '/vars.php' );
@@ -210,10 +191,8 @@ create_initial_post_types();
 register_theme_directory( get_theme_root() );
 
 // Load active plugins.
-foreach ( wp_get_active_and_valid_plugins() as $plugin ) {
-	wp_register_plugin_realpath( $plugin );
+foreach ( wp_get_active_and_valid_plugins() as $plugin )
 	include_once( $plugin );
-}
 unset( $plugin );
 
 // Load pluggable functions.
@@ -227,26 +206,14 @@ wp_set_internal_encoding();
 if ( WP_CACHE && function_exists( 'wp_cache_postload' ) )
 	wp_cache_postload();
 
-/**
- * Fires once activated plugins have loaded.
- *
- * Pluggable functions are also available at this point in the loading order.
- *
- * @since 1.5.0
- */
 do_action( 'plugins_loaded' );
 
 // Define constants which affect functionality if not already defined.
-wp_functionality_constants();
+wp_functionality_constants( );
 
 // Add magic quotes and set up $_REQUEST ( $_GET + $_POST )
 wp_magic_quotes();
 
-/**
- * Fires when comment cookies are sanitized.
- *
- * @since 2.0.11
- */
 do_action( 'sanitize_comment_cookies' );
 
 /**
@@ -254,7 +221,7 @@ do_action( 'sanitize_comment_cookies' );
  * @global object $wp_the_query
  * @since 2.0.0
  */
-$GLOBALS['wp_the_query'] = new WP_Query();
+$wp_the_query = new WP_Query();
 
 /**
  * Holds the reference to @see $wp_the_query
@@ -262,7 +229,7 @@ $GLOBALS['wp_the_query'] = new WP_Query();
  * @global object $wp_query
  * @since 1.5.0
  */
-$GLOBALS['wp_query'] = $GLOBALS['wp_the_query'];
+$wp_query = $wp_the_query;
 
 /**
  * Holds the WordPress Rewrite object for creating pretty URLs
@@ -276,7 +243,7 @@ $GLOBALS['wp_rewrite'] = new WP_Rewrite();
  * @global object $wp
  * @since 2.0.0
  */
-$GLOBALS['wp'] = new WP();
+$wp = new WP();
 
 /**
  * WordPress Widget Factory Object
@@ -292,11 +259,6 @@ $GLOBALS['wp_widget_factory'] = new WP_Widget_Factory();
  */
 $GLOBALS['wp_roles'] = new WP_Roles();
 
-/**
- * Fires before the theme is loaded.
- *
- * @since 2.6.0
- */
 do_action( 'setup_theme' );
 
 // Define the template related constants.
@@ -329,26 +291,17 @@ if ( ! defined( 'WP_INSTALLING' ) || 'wp-activate.php' === $pagenow ) {
 		include( TEMPLATEPATH . '/functions.php' );
 }
 
-/**
- * Fires after the theme is loaded.
- *
- * @since 3.0.0
- */
 do_action( 'after_setup_theme' );
 
 // Set up current user.
-$GLOBALS['wp']->init();
+$wp->init();
 
 /**
- * Fires after WordPress has finished loading but before any headers are sent.
- *
  * Most of WP is loaded at this stage, and the user is authenticated. WP continues
  * to load on the init hook that follows (e.g. widgets), and many plugins instantiate
  * themselves on it for all sorts of reasons (e.g. they need a user, a taxonomy, etc.).
  *
  * If you wish to plug an action once WP is loaded, use the wp_loaded hook below.
- *
- * @since 1.5.0
  */
 do_action( 'init' );
 
@@ -371,4 +324,4 @@ if ( is_multisite() ) {
  *
  * @since 3.0.0
  */
-do_action( 'wp_loaded' );
+do_action('wp_loaded');
