@@ -14,7 +14,7 @@ class Jetpack_Testimonial {
 
 	var $version = '0.1';
 
-	function init() {
+	static function init() {
 		static $instance = false;
 
 		if ( ! $instance )
@@ -34,7 +34,7 @@ class Jetpack_Testimonial {
 	 */
 	function __construct() {
 		// Return early if theme does not support Jetpack Testimonial.
-		if ( ! current_theme_supports( self::TESTIMONIAL_POST_TYPE ) )
+		if ( ! $this->site_supports_testimonial() )
 			return;
 
 		$this->register_post_types();
@@ -46,6 +46,18 @@ class Jetpack_Testimonial {
 		$num_testimonials = self::count_testimonials();
 		if ( ! empty( $num_testimonials ) )
 			add_action( 'admin_menu', array( $this, 'add_customize_page' ) );
+	}
+
+	/**
+	* Should this Custom Post Type be made available?
+	*/
+	function site_supports_testimonial() {
+		// If the current theme requests it.
+		if ( current_theme_supports( self::TESTIMONIAL_POST_TYPE ) )
+			return true;
+
+		// Otherwise, say no unless something wants to filter us to say yes.
+		return (bool) apply_filters( 'jetpack_enable_cpt', false, self::TESTIMONIAL_POST_TYPE );
 	}
 
 	/* Setup */
@@ -128,7 +140,7 @@ class Jetpack_Testimonial {
 			8  => sprintf( __( 'Testimonial submitted. <a target="_blank" href="%s">Preview testimonial</a>', 'jetpack'), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
 			9  => sprintf( __( 'Testimonial scheduled for: <strong>%1$s</strong>. <a target="_blank" href="%2$s">Preview testimonial</a>', 'jetpack' ),
 			// translators: Publish box date format, see http://php.net/date
-			date_i18n( __( 'M j, Y @ G:i' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post->ID) ) ),
+			date_i18n( __( 'M j, Y @ G:i', 'jetpack' ), strtotime( $post->post_date ) ), esc_url( get_permalink($post->ID) ) ),
 			10 => sprintf( __( 'Testimonial draft updated. <a target="_blank" href="%s">Preview testimonial</a>', 'jetpack' ), esc_url( add_query_arg( 'preview', 'true', get_permalink( $post->ID ) ) ) ),
 		);
 
@@ -270,7 +282,8 @@ function jetpack_testimonial_custom_control_classes() {
 		}
 
 		public function attachment_guid_to_id( $value ) {
-			if ( is_numeric( $value ) )
+
+			if ( is_numeric( $value ) || empty( $value ) )
 				return $value;
 
 			$matches = get_posts( array( 'post_type' => 'attachment', 'guid' => $value ) );
